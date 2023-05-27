@@ -1,0 +1,27 @@
+package oop.hus.lab4;
+
+import java.util.Scanner;
+
+public class GreatestCommonDivisor {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("a = ");
+        int a = in.nextInt();
+        System.out.print("b = ");
+        int b = in.nextInt();
+        System.out.printf("GCD(%d, %d) = %d", a, b, gcd(a, b));
+        in.close();
+    }
+
+    public static int gcd(int a, int b) {
+        if (a <= 0 || b <= 0) {
+            return -1;
+        }
+        while (b != 0) {
+            int tmp = b;
+            b = a % b;
+            a = tmp;
+        }
+        return a;
+    }
+}
